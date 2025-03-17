@@ -35,6 +35,7 @@ public class CallCustomerButton : MonoBehaviour
             touch = 0;
             //CustomerManager customerMgr = FindObjectOfType<CustomerManager>();
             //customerMgr.EnterCustomer();
+
             CustomerManager.Instance.EnterCustomer();
             //파인드 오브젝트는 업데이트에서는 못씀
             //EnterCustomer();

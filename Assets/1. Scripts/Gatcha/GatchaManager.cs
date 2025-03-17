@@ -12,6 +12,7 @@ public class GatchaManager : MonoBehaviour
 
     public void StartGacha()
     {
+        MainQuestManager.Instance.DoQuest(MainQuestType.PlayGatcha);
         MakeCustomerBall();
         //User.Instance.Lv; 포도알을 모으면 소믈리에 뱃지 레벨
         //MakeWineBall();

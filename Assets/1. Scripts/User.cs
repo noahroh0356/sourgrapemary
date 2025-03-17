@@ -211,6 +211,7 @@ public class UserData
     public List<UserFurniture> userFurnitureList = new List<UserFurniture>();
     public List<UserKitchen> userKitchenList = new List<UserKitchen>();
     public List<UserCustomer> userCustomers = new List<UserCustomer>();
+    public List<UserFoxes> userFoxes = new List<UserFoxes>();
 
 }
 
@@ -236,6 +237,15 @@ public class UserKitchen
 [System.Serializable]
 
 public class UserCustomer
+{
+    public string key;
+    public bool open;
+
+}
+
+[System.Serializable]
+
+public class UserFoxes
 {
     public string key;
     public bool open;

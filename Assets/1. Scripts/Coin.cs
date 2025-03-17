@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float moveSpeed = 100f;
-    bool isPicked = false;
+    public bool isPicked = false;
     public AudioSource clickSound;
 
     private void Start()

@@ -39,7 +39,7 @@ public class CustomerManager : MonoBehaviour
         {
             return;
         }
-
+        MainQuestManager.Instance.DoQuest(MainQuestType.CallCustomer);
         int randomIndex = Random.Range(0, customerPrefabs.Count);
         Customer newCustomerObject = Instantiate(customerPrefabs[randomIndex], enterance.position, Quaternion.identity);
 

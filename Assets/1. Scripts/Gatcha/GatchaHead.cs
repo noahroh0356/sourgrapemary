@@ -20,6 +20,14 @@ public class GatchaHead : MonoBehaviour
     public bool isDone = false; // 물건 들어올린 후 
     public bool isComeback = false; // 떨어뜨린 후
 
+    public LineRenderer lineRenderer;
+
+    private void Start()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 2;
+
+    }
 
 
     public void MoveLeft()
@@ -36,6 +44,7 @@ public class GatchaHead : MonoBehaviour
     { 
         if (isComeback)
             return;
+        lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0));
         isMovingDown = true;
     }
 
@@ -58,6 +67,8 @@ public class GatchaHead : MonoBehaviour
 
             if (isMovingDown && !isCollided)
             {
+                lineRenderer.SetPosition(1, transform.position);
+
                 transform.position += Vector3.down * moveSpeed * Time.deltaTime;
             }
 
@@ -139,7 +150,7 @@ public class GatchaHead : MonoBehaviour
 
         while (true)
         { 
-        if (transform.position.y >= 14.5f)
+        if (transform.position.y >= 8.5f) // **올라가는 위
         {
             //moveUpSpeed = 0f;
                 isDone = true;
@@ -147,7 +158,8 @@ public class GatchaHead : MonoBehaviour
         }
 
             transform.position += Vector3.up * moveSpeed * Time.deltaTime;
-
+            lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0));
+            lineRenderer.SetPosition(1, transform.position);
             yield return null;
 
         }
@@ -171,7 +183,8 @@ public class GatchaHead : MonoBehaviour
         {
             Debug.Log("DropMove 도착");
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, new Vector3(6.5f, transform.localPosition.y, transform.localPosition.z), moveSpeed * Time.deltaTime);
-
+            lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0));
+            lineRenderer.SetPosition(1, transform.position);
             yield return null;
         }
 
