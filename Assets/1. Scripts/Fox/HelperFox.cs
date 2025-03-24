@@ -9,6 +9,7 @@ public class HelperFox : Fox
     //Enter()에 레스토랑에 등장 + 동전을 줍기 시작
     public override void Enter()
     {
+
         transform.position = new Vector3(5, 0);
         StartCoroutine(CoPickUpCoin());
     }

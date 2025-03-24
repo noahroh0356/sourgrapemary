@@ -26,18 +26,24 @@ public class GatchaHead : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
-
+        Vector3 startPos = transform.position;
+        lineRenderer.SetPosition(0, new Vector3(startPos.x, 12.4f, 0)); // 윗부분
+        lineRenderer.SetPosition(1, startPos); // 아래 부분 (현재 위치)
     }
 
 
     public void MoveLeft()
     {
-        transform.position += Vector3.left*moveSpeed*Time.deltaTime;
+            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0)); // 윗부분
+            lineRenderer.SetPosition(1, transform.position); // 아래 부분 (현재 위치)
     }
 
     public void MoveRight()
     {
-        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0)); // 윗부분
+            lineRenderer.SetPosition(1, transform.position); // 아래 부분 (현재 위치)
     }
 
     public void StartMoveDown()
@@ -53,7 +59,8 @@ public class GatchaHead : MonoBehaviour
     private void Update()
     {
 
-        if (!isComeback && isMovingUp ==false)
+
+        if (!isComeback && isMovingUp == false)
         {
             if (gatchaCanvas.pushDownLeft == true)
             {
@@ -68,7 +75,6 @@ public class GatchaHead : MonoBehaviour
             if (isMovingDown && !isCollided)
             {
                 lineRenderer.SetPosition(1, transform.position);
-
                 transform.position += Vector3.down * moveSpeed * Time.deltaTime;
             }
 
@@ -158,8 +164,8 @@ public class GatchaHead : MonoBehaviour
         }
 
             transform.position += Vector3.up * moveSpeed * Time.deltaTime;
-            lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0));
             lineRenderer.SetPosition(1, transform.position);
+
             yield return null;
 
         }
@@ -191,7 +197,7 @@ public class GatchaHead : MonoBehaviour
         moveSpeed = 10;
         isDone = false;
         isComeback = true;
-        isClawClosed = false;        //**집게 열기 코드
+        isClawClosed = false;      
         // 집게를 다 열고
         // 제자리로 돌아오기
 
@@ -204,7 +210,10 @@ public class GatchaHead : MonoBehaviour
 
         while (Mathf.Abs(transform.localPosition.x) > 0.1f)
         {
+            OpenClaw();
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z), moveSpeed * Time.deltaTime);
+            lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0)); // 시작점도 함께 이동
+            lineRenderer.SetPosition(1, transform.position);
             yield return null;
         }
         // 원래 자리로 돌아가게 하는 코드 나올자리
@@ -264,6 +273,31 @@ public class GatchaHead : MonoBehaviour
             isClawClosed = true;
         }
     }
+
+    public void OpenClaw()
+    {
+        Debug.Log("집게 열기 시작");
+
+        // 집게를 다시 열기 전에 속도 복구
+        clawMoveSpeed = 0.5f;
+
+        StartCoroutine(OpenClawCoroutine());
+    }
+
+    IEnumerator OpenClawCoroutine()
+    {
+        while (Vector3.Distance(clawLeft.localPosition, clawRight.localPosition) < 1.3f) // 충분히 벌어질 때까지
+        {
+            clawLeft.localPosition -= Vector3.right * clawMoveSpeed * Time.deltaTime;
+            clawRight.localPosition -= Vector3.left * clawMoveSpeed * Time.deltaTime;
+
+            yield return null;
+        }
+
+        Debug.Log("집게 열기 완료");
+    }
+
+
 }
 
 

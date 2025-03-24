@@ -44,6 +44,10 @@ public class User : MonoBehaviour
 
     }
 
+    public List<UserFox> GetSetUpFox()
+    {
+        return userData.userFoxes; // 모든 UserFox 리스트를 반환하거나, 필요한 조건에 따라 필터링하여 반환
+    }
 
     public void AddExp(int e)
     {
@@ -145,6 +149,20 @@ public class User : MonoBehaviour
         }
     }
 
+
+    public void AddFox(string key)
+    {
+        UserFox userFox = GetUserFox(key);
+        if (userFox == null) // 이미 등록된 손님인지 확인
+        {
+            userFox = new UserFox();
+            userFox.key = key;
+            userFox.purchased = true; // 또는 획득 여부를 나타내는 다른 상태로 설정
+            userData.userFoxes.Add(userFox);
+            SaveMgr.SaveData<UserData>("UserData", userData); // 데이터 저장
+        }
+    }
+
     public UserFurniture GetUserFurniture(string key)
     {
         for (int i = 0; i < userData.userFurnitureList.Count; i++)
@@ -189,6 +207,20 @@ public class User : MonoBehaviour
         return null;
     }
 
+
+    public UserFox GetUserFox(string key)
+    {
+        for (int i = 0; i < userData.userFoxes.Count; i++)
+        {
+            if (userData.userFoxes[i].key == key)
+            {
+                return userData.userFoxes[i];
+            }
+        }
+        return null;
+    }
+
+
     public void AddCoin(int c)
     {
         userData.coin += c;
@@ -211,7 +243,7 @@ public class UserData
     public List<UserFurniture> userFurnitureList = new List<UserFurniture>();
     public List<UserKitchen> userKitchenList = new List<UserKitchen>();
     public List<UserCustomer> userCustomers = new List<UserCustomer>();
-    public List<UserFoxes> userFoxes = new List<UserFoxes>();
+    public List<UserFox> userFoxes = new List<UserFox>();
 
 }
 
@@ -245,9 +277,9 @@ public class UserCustomer
 
 [System.Serializable]
 
-public class UserFoxes
+public class UserFox
 {
     public string key;
-    public bool open;
+    public bool purchased;
 
 }

@@ -1,7 +1,7 @@
 {
     "level": 0,
     "exp": 0,
-    "coin": 80,
+    "coin": 318,
     "userFurnitureList": [
         {
             "furniturekey": "table0_0",
@@ -21,5 +21,11 @@
             "setup": true
         }
     ],
-    "userCustomers": []
+    "userCustomers": [],
+    "userFoxes": [
+        {
+            "key": "redFox",
+            "purchased": true
+        }
+    ]
 }

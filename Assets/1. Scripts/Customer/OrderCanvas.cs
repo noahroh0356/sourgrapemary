@@ -11,7 +11,7 @@ public class OrderCanvas : MonoBehaviour //말풍선 안에 주문 이미지
     public void SetOrderMenu(MenuData data)
     {
         gameObject.SetActive(true);
-        menuImage.sprite = data.menuImage;
+        menuImage.sprite = data.menuOrderImage;
     }
 
 }
