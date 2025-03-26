@@ -7,6 +7,10 @@ public class GatchaHead : MonoBehaviour
     public GatchaCanvas gatchaCanvas;
     public float moveSpeed=5;
 
+    public Transform leftTopTr;
+    public Transform rightTopTr;
+
+
     //public float moveUpSpeed = 1f; // 올라가는 속도 추가
     public Transform clawLeft; // 왼쪽 집게
     public Transform clawRight; // 오른쪽 집게
@@ -27,22 +31,32 @@ public class GatchaHead : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
         Vector3 startPos = transform.position;
-        lineRenderer.SetPosition(0, new Vector3(startPos.x, 12.4f, 0)); // 윗부분
+        lineRenderer.SetPosition(0, new Vector3(startPos.x, rightTopTr.position.y, 0)); // 윗부분
         lineRenderer.SetPosition(1, startPos); // 아래 부분 (현재 위치)
     }
+
 
 
     public void MoveLeft()
     {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-            lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0)); // 윗부분
+
+
+         float x = Mathf.Clamp(transform.position.x, leftTopTr.position.x, rightTopTr.position.x); // 기준, 최소, 최대
+
+        transform.position = new Vector2(x, transform.position.y);
+            lineRenderer.SetPosition(0, new Vector3(transform.position.x, rightTopTr.position.y, 0)); // 윗부분
             lineRenderer.SetPosition(1, transform.position); // 아래 부분 (현재 위치)
     }
 
     public void MoveRight()
     {
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0)); // 윗부분
+
+        float x = Mathf.Clamp(transform.position.x, leftTopTr.position.x, rightTopTr.position.x); // 기준, 최소, 최대
+        transform.position = new Vector2(x, transform.position.y);
+
+        lineRenderer.SetPosition(0, new Vector3(transform.position.x, rightTopTr.position.y, 0)); // 윗부분
             lineRenderer.SetPosition(1, transform.position); // 아래 부분 (현재 위치)
     }
 
@@ -50,7 +64,7 @@ public class GatchaHead : MonoBehaviour
     { 
         if (isComeback)
             return;
-        lineRenderer.SetPosition(0, new Vector3(transform.position.x, 12.4f, 0));
+        lineRenderer.SetPosition(0, new Vector3(transform.position.x, rightTopTr.position.y, 0));
         isMovingDown = true;
     }
 
@@ -62,6 +76,8 @@ public class GatchaHead : MonoBehaviour
 
         if (!isComeback && isMovingUp == false)
         {
+            if (isMovingDown == false)
+            { 
             if (gatchaCanvas.pushDownLeft == true)
             {
                 MoveLeft();
@@ -71,6 +87,7 @@ public class GatchaHead : MonoBehaviour
             {
                 MoveRight();
             }
+        }
 
             if (isMovingDown && !isCollided)
             {
@@ -80,7 +97,7 @@ public class GatchaHead : MonoBehaviour
 
         }
 
-
+ 
 
 
         if (isCollided&&!isClawClosed)
@@ -146,6 +163,12 @@ public class GatchaHead : MonoBehaviour
             gatchaBall.rgdy.bodyType = RigidbodyType2D.Dynamic;
             gatchaBall.transform.parent = null;
         }
+
+        if (success == true)
+        {
+            gatchaBall.ReceiveReward();
+        }
+
     }
     //가챠 헤더 이동용
 
@@ -203,6 +226,7 @@ public class GatchaHead : MonoBehaviour
 
         if (gatchaBall != null && gatchaBall.gameObject.activeSelf)
         {
+            //gatchaBall.ReceiveReward();
             gatchaBall.rgdy.bodyType = RigidbodyType2D.Dynamic;
             gatchaBall.transform.parent = null;
         }

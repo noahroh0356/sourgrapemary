@@ -33,11 +33,11 @@ public class FoxProductPanel : MonoBehaviour
         else
         {
             User.Instance.AddFox(key);
-            GetComponent<FoxManager>().UpdateFox(); //**여기서부터 수정 필요
+            FoxManager.Instance.AddFox(key);
             User.Instance.userData.coin -= foxData.price;
             //User.Instance.UpdateCoinText();
-            FoxManager.Instance.UpdateFox();
-            PorUtext.text = "업그레이드";
+            //FoxManager.Instance.UpdateFox();
+            //PorUtext.text = "업그레이드";
 
         }
     }

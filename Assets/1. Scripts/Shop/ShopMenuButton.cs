@@ -6,6 +6,15 @@ public class ShopMenuButton : MonoBehaviour
 {
     public GameObject[] panels;
     public GameObject activePanel;
+    public bool first;
+
+    private void Start()
+    {
+        if (first)
+        {
+            OnClickButton();
+        }
+    }
 
     public void OnClickButton()
     {

@@ -2492,7 +2492,7 @@ GameObject:
   - component: {fileID: 74735450}
   - component: {fileID: 74735453}
   - component: {fileID: 74735452}
-  - component: {fileID: 74735451}
+  - component: {fileID: 74735454}
   m_Layer: 5
   m_Name: Menu_Table0_0
   m_TagString: Untagged
@@ -2523,22 +2523,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &74735451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74735449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe779641535a44bb8f1b71c29a5b681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: table4_0
-  PorUtext: {fileID: 451701120}
-  Pricetext: {fileID: 1815863682}
-  tableImage: {fileID: 1320073445}
 --- !u!114 &74735452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2577,6 +2561,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74735449}
   m_CullTransparentMesh: 1
+--- !u!114 &74735454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74735449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eccced94af2400a911a4654d09f3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: tibetFox
+  PorUtext: {fileID: 0}
+  Pricetext: {fileID: 1815863682}
+  foxImage: {fileID: 0}
 --- !u!1 &80038989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3354,6 +3354,7 @@ MonoBehaviour:
   - key: ThunderSquirrel1
     order: 7
     thum: {fileID: 21300000, guid: a1e64ed81a2a54125accac474a459fc2, type: 3}
+  userCustomers: []
   customerPrefabs:
   - {fileID: -946062859143099519, guid: 63e204cf3360540e68032e456eae0f18, type: 3}
   - {fileID: 667673332255150995, guid: c7d5798e23f5b408080944cd0d901fc6, type: 3}
@@ -4638,8 +4639,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 74735451}
-        m_TargetAssemblyTypeName: FurnitureProductPanel, Assembly-CSharp
+      - m_Target: {fileID: 74735454}
+        m_TargetAssemblyTypeName: FoxProductPanel, Assembly-CSharp
         m_MethodName: OnClickPurchased
         m_Mode: 1
         m_Arguments:
@@ -9070,7 +9071,36 @@ MonoBehaviour:
     abilities:
     - abilityType: 0
       abiltyValue: 0.2
+  - key: desertFox
+    price: 10
+    thum: {fileID: 21300000, guid: 509f06d7848da4bd98b849ee9fa497d5, type: 3}
+    foxPrefab: {fileID: 661104776}
+    abilities:
+    - abilityType: 0
+      abiltyValue: 0.2
+  - key: northpoleFox
+    price: 10
+    thum: {fileID: 21300000, guid: 648cabff75b2748fdb807ca7911b32da, type: 3}
+    foxPrefab: {fileID: 1716462088}
+    abilities:
+    - abilityType: 0
+      abiltyValue: 0.2
+  - key: tibetFox
+    price: 10
+    thum: {fileID: 21300000, guid: 1f15fac74955c4a03bb14f0fc8445fa8, type: 3}
+    foxPrefab: {fileID: 489833607}
+    abilities:
+    - abilityType: 0
+      abiltyValue: 0.2
+  - key: fireFox
+    price: 10
+    thum: {fileID: 21300000, guid: ca7d0e1221a8c492abf6143f059af13d, type: 3}
+    foxPrefab: {fileID: 838752495}
+    abilities:
+    - abilityType: 0
+      abiltyValue: 0.2
   foxes: []
+  currentfoxes: []
 --- !u!1 &286342170
 GameObject:
   m_ObjectHideFlags: 0
@@ -9278,6 +9308,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2123125175}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &295386454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 295386455}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &295386455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295386454}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.25, y: 12.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1036829363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299038272
 GameObject:
@@ -9674,10 +9735,10 @@ RectTransform:
   - {fileID: 1497786804}
   m_Father: {fileID: 1679666256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 435, y: -637.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &304948899
 GameObject:
@@ -9912,10 +9973,10 @@ RectTransform:
   - {fileID: 965350181}
   m_Father: {fileID: 693167074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 735, y: -637.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &306582367
 MonoBehaviour:
@@ -14383,7 +14444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &431770329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15535,7 +15596,7 @@ GameObject:
   - component: {fileID: 454783098}
   - component: {fileID: 454783101}
   - component: {fileID: 454783100}
-  - component: {fileID: 454783099}
+  - component: {fileID: 454783102}
   m_Layer: 5
   m_Name: Menu_Table0_0
   m_TagString: Untagged
@@ -15566,22 +15627,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &454783099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454783097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe779641535a44bb8f1b71c29a5b681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: table2_0
-  PorUtext: {fileID: 697259959}
-  Pricetext: {fileID: 688301961}
-  tableImage: {fileID: 1415316056}
 --- !u!114 &454783100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15620,6 +15665,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454783097}
   m_CullTransparentMesh: 1
+--- !u!114 &454783102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454783097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eccced94af2400a911a4654d09f3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: desertFox
+  PorUtext: {fileID: 0}
+  Pricetext: {fileID: 688301961}
+  foxImage: {fileID: 0}
 --- !u!1 &455139109
 GameObject:
   m_ObjectHideFlags: 0
@@ -16721,8 +16782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3651bebe3b3ed410c8fc1ba67a2d96c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
-  foxObjects: []
+  key: tibetFox
 --- !u!1 &490532076
 GameObject:
   m_ObjectHideFlags: 0
@@ -17329,6 +17389,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505636102}
   m_CullTransparentMesh: 1
+--- !u!1 &509327889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509327890}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &509327890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509327889}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.28, y: 12.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1036829363}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509717585
 GameObject:
   m_ObjectHideFlags: 0
@@ -18001,10 +18092,10 @@ RectTransform:
   - {fileID: 88062783}
   m_Father: {fileID: 693167074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 435, y: -202.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527042941
 MonoBehaviour:
@@ -18037,7 +18128,7 @@ GameObject:
   - component: {fileID: 537726832}
   - component: {fileID: 537726835}
   - component: {fileID: 537726834}
-  - component: {fileID: 537726833}
+  - component: {fileID: 537726836}
   m_Layer: 5
   m_Name: Menu_Table0_0
   m_TagString: Untagged
@@ -18068,22 +18159,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &537726833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537726831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe779641535a44bb8f1b71c29a5b681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: table3_0
-  PorUtext: {fileID: 1763209867}
-  Pricetext: {fileID: 1520787013}
-  tableImage: {fileID: 2056039822}
 --- !u!114 &537726834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18122,6 +18197,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537726831}
   m_CullTransparentMesh: 1
+--- !u!114 &537726836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537726831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eccced94af2400a911a4654d09f3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: northpoleFox
+  PorUtext: {fileID: 0}
+  Pricetext: {fileID: 1520787013}
+  foxImage: {fileID: 0}
 --- !u!1 &540177459
 GameObject:
   m_ObjectHideFlags: 0
@@ -21477,10 +21568,10 @@ RectTransform:
   - {fileID: 1759319482}
   m_Father: {fileID: 693167074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 135, y: -202.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &617081304
 MonoBehaviour:
@@ -22134,10 +22225,10 @@ RectTransform:
   - {fileID: 225912000}
   m_Father: {fileID: 693167074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 135, y: -637.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624041410
 MonoBehaviour:
@@ -23304,8 +23395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3651bebe3b3ed410c8fc1ba67a2d96c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
-  foxObjects: []
+  key: desertFox
 --- !u!1 &668861901
 GameObject:
   m_ObjectHideFlags: 0
@@ -24831,7 +24921,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 584.11334}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 870, y: 840}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &693167075
 MonoBehaviour:
@@ -26614,8 +26704,9 @@ MonoBehaviour:
   panels:
   - {fileID: 2124957921}
   - {fileID: 431770328}
-  - {fileID: 857960997}
+  - {fileID: 824389882}
   activePanel: {fileID: 431770328}
+  first: 0
 --- !u!114 &727366544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30717,7 +30808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &824389883
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31456,8 +31547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3651bebe3b3ed410c8fc1ba67a2d96c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
-  foxObjects: []
+  key: fireFox
 --- !u!1 &839269727
 GameObject:
   m_ObjectHideFlags: 0
@@ -32062,6 +32152,7 @@ MonoBehaviour:
   - {fileID: 431770328}
   - {fileID: 824389882}
   activePanel: {fileID: 824389882}
+  first: 0
 --- !u!114 &857961000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33656,8 +33747,8 @@ RectTransform:
   - {fileID: 2116708874}
   - {fileID: 727366542}
   - {fileID: 857960998}
-  - {fileID: 431770329}
   - {fileID: 2124957922}
+  - {fileID: 431770329}
   - {fileID: 824389883}
   m_Father: {fileID: 1026638703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -34756,10 +34847,10 @@ RectTransform:
   - {fileID: 537726832}
   m_Father: {fileID: 1679666256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 735, y: -202.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &917641148
 GameObject:
@@ -40616,6 +40707,8 @@ Transform:
   - {fileID: 243770663}
   - {fileID: 1168443327}
   - {fileID: 1578645360}
+  - {fileID: 295386455}
+  - {fileID: 509327890}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1037708761
@@ -41196,10 +41289,10 @@ RectTransform:
   - {fileID: 454783098}
   m_Father: {fileID: 1679666256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 435, y: -202.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1073462163
 GameObject:
@@ -41441,10 +41534,10 @@ RectTransform:
   - {fileID: 1671492392}
   m_Father: {fileID: 1679666256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 135, y: -202.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1087989865
 GameObject:
@@ -42964,8 +43057,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1497786805}
-        m_TargetAssemblyTypeName: FurnitureProductPanel, Assembly-CSharp
+      - m_Target: {fileID: 1497786808}
+        m_TargetAssemblyTypeName: FoxProductPanel, Assembly-CSharp
         m_MethodName: OnClickPurchased
         m_Mode: 1
         m_Arguments:
@@ -48100,10 +48193,10 @@ RectTransform:
   - {fileID: 405155500}
   m_Father: {fileID: 693167074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 435, y: -637.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1260335284
 MonoBehaviour:
@@ -53176,10 +53269,10 @@ RectTransform:
   - {fileID: 74735450}
   m_Father: {fileID: 1679666256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 135, y: -637.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1381843656
 GameObject:
@@ -57370,7 +57463,7 @@ GameObject:
   - component: {fileID: 1497786804}
   - component: {fileID: 1497786807}
   - component: {fileID: 1497786806}
-  - component: {fileID: 1497786805}
+  - component: {fileID: 1497786808}
   m_Layer: 5
   m_Name: Menu_Table0_0
   m_TagString: Untagged
@@ -57401,22 +57494,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1497786805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497786803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe779641535a44bb8f1b71c29a5b681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: table5_0
-  PorUtext: {fileID: 920009666}
-  Pricetext: {fileID: 1770597329}
-  tableImage: {fileID: 2126433830}
 --- !u!114 &1497786806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57455,6 +57532,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497786803}
   m_CullTransparentMesh: 1
+--- !u!114 &1497786808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497786803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eccced94af2400a911a4654d09f3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: fireFox
+  PorUtext: {fileID: 0}
+  Pricetext: {fileID: 1770597329}
+  foxImage: {fileID: 0}
 --- !u!1 &1503249142
 GameObject:
   m_ObjectHideFlags: 0
@@ -60967,6 +61060,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gatchaCanvas: {fileID: 14587123}
   moveSpeed: 5
+  leftTopTr: {fileID: 509327890}
+  rightTopTr: {fileID: 295386455}
   clawLeft: {fileID: 1816296368}
   clawRight: {fileID: 1690298791}
   clawCloseDistance: 0.8
@@ -62988,8 +63083,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 454783099}
-        m_TargetAssemblyTypeName: FurnitureProductPanel, Assembly-CSharp
+      - m_Target: {fileID: 454783102}
+        m_TargetAssemblyTypeName: FoxProductPanel, Assembly-CSharp
         m_MethodName: OnClickPurchased
         m_Mode: 1
         m_Arguments:
@@ -64162,7 +64257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: redFox
   PorUtext: {fileID: 0}
-  Pricetext: {fileID: 0}
+  Pricetext: {fileID: 1645742977}
   foxImage: {fileID: 0}
 --- !u!1 &1674919317
 GameObject:
@@ -64371,7 +64466,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 584.11334}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 870, y: 840}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1679666257
 MonoBehaviour:
@@ -65285,8 +65380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3651bebe3b3ed410c8fc1ba67a2d96c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
-  foxObjects: []
+  key: northpoleFox
 --- !u!1 &1716503927
 GameObject:
   m_ObjectHideFlags: 0
@@ -74680,10 +74774,10 @@ RectTransform:
   - {fileID: 305178833}
   m_Father: {fileID: 693167074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 735, y: -202.5}
+  m_SizeDelta: {x: 270, y: 405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910965272
 MonoBehaviour:
@@ -80870,8 +80964,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 537726833}
-        m_TargetAssemblyTypeName: FurnitureProductPanel, Assembly-CSharp
+      - m_Target: {fileID: 537726836}
+        m_TargetAssemblyTypeName: FoxProductPanel, Assembly-CSharp
         m_MethodName: OnClickPurchased
         m_Mode: 1
         m_Arguments:
@@ -81839,8 +81933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3651bebe3b3ed410c8fc1ba67a2d96c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
-  foxObjects: []
+  key: redFox
 --- !u!1 &2116708873
 GameObject:
   m_ObjectHideFlags: 0
@@ -81896,8 +81989,9 @@ MonoBehaviour:
   panels:
   - {fileID: 2124957921}
   - {fileID: 431770328}
-  - {fileID: 857960997}
+  - {fileID: 824389882}
   activePanel: {fileID: 2124957921}
+  first: 0
 --- !u!114 &2116708876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83120,7 +83214,9 @@ MonoBehaviour:
     coin: 100
     userFurnitureList: []
     userKitchenList: []
-    userCustomers: []
+    userCustomers:
+    - key: 
+      open: 0
     userFoxes: []
 --- !u!4 &2135408649
 Transform:

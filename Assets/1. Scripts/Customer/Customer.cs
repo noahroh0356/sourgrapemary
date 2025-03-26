@@ -17,6 +17,8 @@ public class Customer : MonoBehaviour
     public RestaurantManager rm;
     public TablePlace tablePlace;
 
+
+
     public OrderCanvas orderCanvas;
 
     //public Image orderMenuImage;
@@ -212,3 +214,4 @@ public class Customer : MonoBehaviour
 
 
 }
+

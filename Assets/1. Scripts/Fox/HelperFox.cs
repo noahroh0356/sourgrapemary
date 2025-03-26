@@ -9,7 +9,7 @@ public class HelperFox : Fox
     //Enter()에 레스토랑에 등장 + 동전을 줍기 시작
     public override void Enter()
     {
-
+        base.Enter(); // base는 this의 부모객체 버전 
         transform.position = new Vector3(5, 0);
         StartCoroutine(CoPickUpCoin());
     }

@@ -49,6 +49,12 @@ public class User : MonoBehaviour
         return userData.userFoxes; // 모든 UserFox 리스트를 반환하거나, 필요한 조건에 따라 필터링하여 반환
     }
 
+
+    public List<UserCustomer> GetSetUpCustomer()
+    {
+        return userData.userCustomers; // 모든 Usercustomer 리스트를 반환하거나, 필요한 조건에 따라 필터링하여 반환
+    }
+
     public void AddExp(int e)
     {
         userData.exp += e;
@@ -81,6 +87,13 @@ public class User : MonoBehaviour
         {
             userData = new UserData();
             userData.coin = 0;
+
+            userData.userCustomers.Clear();
+            UserCustomer defaultCustomer = new UserCustomer();
+            defaultCustomer.key = "Racoon1"; // 기본 고객의 키 설정
+            defaultCustomer.open = true; // 기본 고객은 항상 열려있음
+            userData.userCustomers.Add(defaultCustomer);
+
             SaveMgr.SaveData<UserData>("UserData", userData);
         }
 
