@@ -32,22 +32,18 @@ public class GatchaBall : MonoBehaviour
         }
 
 
-        //else if (gatchaType == GatchaType.Wine)
-        //{
-        //    User.Instance.AddWine(key);
-        //    //도토리 숫자 정의
-        //    //MainQuestManager.Instance.curQuestIndex
-        //    //*손님인형과 도토리가 인형뽑기 안에 쌓이게 하기 숫자대, 위치 지정
-        //} ** 유저에 와인 추가하기 
+        else if (gatchaType == GatchaType.Wine)
+        {
+            User.Instance.AddWine(key);
+        }
+
     }
 
 }
-
 
 public enum GatchaType
 {
 Wine,
 Customer,
-Acon,
-//Wine,
+Acon
 }

@@ -738,7 +738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2947755144708022759}
   - component: {fileID: 1696091399890243564}
-  - component: {fileID: 7417836341867077392}
+  - component: {fileID: 2539588077615814826}
   m_Layer: 0
   m_Name: CustomerGatchaBall
   m_TagString: GatchaBall
@@ -795,7 +795,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7417836341867077392
+--- !u!114 &2539588077615814826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788705eb572a2483ca40c54c9930e03a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rgdy: {fileID: 1696091399890243564}
+  rgdy: {fileID: 0}
   gatchaType: 1
   key: 
   spriteRenderers: []

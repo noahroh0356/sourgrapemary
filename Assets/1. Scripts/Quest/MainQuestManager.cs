@@ -8,6 +8,7 @@ public class MainQuestManager : MonoBehaviour
     public MainQuestData[] mainQuestDatas; // 메인 퀘스트 데이터 특정 퀘스트 정보
     public UserMainQuest userMainQuest;
     public int curQuestIndex = 0; // 퀘스트가 차례대로 나타나도록 설정=진행 중인 퀘스트
+   
 
     public string[] purchaseFurnitureQuestKeys;
     public string[] purchaseKitchenQuestKeys;
@@ -66,8 +67,11 @@ public void DoQuest(MainQuestType type)
     {
         if (userMainQuest.mainQuestType == type)
         {
-            userMainQuest.process++;
-            FindObjectOfType<MainQuestPanel>().UpdatePanel();
+            if (userMainQuest.process < GetMainQuestData(type).goal)
+            {
+                userMainQuest.process++;
+                FindObjectOfType<MainQuestPanel>().UpdatePanel();
+            }
         }
         //""현재 진행중인 퀘스트(=만들어야함)""가 타입과 같다면 퀘스트 진행도 1추가
     }
@@ -80,29 +84,63 @@ public void DoQuest(MainQuestType type)
         {
            string furnitureKey = curQuestData.GetGoal();
            UserFurniture userFurniture = User.Instance.GetUserFurniture(furnitureKey);
-            return userFurniture.purchased;
+            if (userFurniture != null && userFurniture.purchased)
+            {
+                CompleteCurrentQuest();
+                return true;
+            }
         }
         else if (userMainQuest.mainQuestType == MainQuestType.PurchaseKitchen)
         {
             string KitchenKey = curQuestData.GetGoal();
             UserKitchen userKitchenBar = User.Instance.GetUserKitchen(KitchenKey);
-            return userKitchenBar.purchased;
+            {
+                CompleteCurrentQuest();
+                return true;
+            }
 
         }
 
         else
-        { 
-            if (curQuestData != null && userMainQuest.process >= curQuestData.goal)
+        {
+            if (userMainQuest.process >= curQuestData.goal)
             {
-                Debug.Log("퀘스트 완료!");
-                curQuestIndex++;  // 다음 퀘스트로 인덱스 증가
-                User.Instance.AddExp(1);
-                StartQuest();         // 다음 퀘스트 시작
+                Debug.Log($"퀘스트 완료! {userMainQuest.mainQuestType}");
+                CompleteCurrentQuest();
                 return true;
             }
         }
 
+        //else
+        //{ 
+        //    if (curQuestData != null && userMainQuest.process >= curQuestData.goal)
+        //    {
+        //        Debug.Log("퀘스트 완료!");
+        //        FindObjectOfType<MainQuestPanel>().CompleteQuest();
+        //        curQuestIndex++;  // 다음 퀘스트로 인덱스 증가
+        //        User.Instance.AddGatchaCoin(1);
+        //        StartQuest();         // 다음 퀘스트 시작
+        //        return true;
+        //    }
+        //}
+
         return false;
+    }
+
+    public void CompleteCurrentQuest()
+    {
+        Debug.Log("퀘스트 완료!");
+
+        FindObjectOfType<MainQuestPanel>().CompleteQuest();
+
+        curQuestIndex++;  // 다음 퀘스트로 인덱스 증가
+        userMainQuest.processing = false; // 퀘스트 진행 상태 초기화
+        User.Instance.AddGatchaCoin(1); // 가챠코인 지급
+
+        SaveMgr.SaveData("UserMainQuest", userMainQuest); // 데이터 저장
+
+        // 다음 퀘스트 시작
+        StartQuest();
     }
     //public bool CheckClear()
     //{
@@ -126,7 +164,7 @@ public void DoQuest(MainQuestType type)
     //    //현재 진행중인 퀘스트 데이
     //    //현재 진행 중인 퀘스트를 완료할 수 있으면 true아니면 false
 
-public MainQuestData GetMainQuestData(MainQuestType type)
+    public MainQuestData GetMainQuestData(MainQuestType type)
 
     {
         for (int i = 0; i < mainQuestDatas.Length; i++)

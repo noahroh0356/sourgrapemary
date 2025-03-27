@@ -32,7 +32,7 @@ public class User : MonoBehaviour
         for (int i = 0; i < userData.userKitchenList.Count; i++)
         {
             if (userData.userKitchenList[i].setup == false)
-            continue;
+                continue;
             KitchenData kitchenData = KitchenManager.Instance.GetKitchenData(userData.userKitchenList[i].kitchenkey);
 
             if (kitchenData.kitchenPlaceType == kitchenPlaceType)
@@ -48,6 +48,12 @@ public class User : MonoBehaviour
     {
         return userData.userFoxes; // 모든 UserFox 리스트를 반환하거나, 필요한 조건에 따라 필터링하여 반환
     }
+
+    public List<UserWine> GetSetUpWine()
+    {
+        return userData.userWines; // 모든 UserFox 리스트를 반환하거나, 필요한 조건에 따라 필터링하여 반환
+    }
+
 
 
     public List<UserCustomer> GetSetUpCustomer()
@@ -80,19 +86,30 @@ public class User : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this; 
+        Instance = this;
         userData = SaveMgr.LoadData<UserData>("UserData");
 
         if (userData == null)
         {
             userData = new UserData();
             userData.coin = 0;
+            userData.gatchaCoin = 0;
 
             userData.userCustomers.Clear();
             UserCustomer defaultCustomer = new UserCustomer();
             defaultCustomer.key = "Racoon1"; // 기본 고객의 키 설정
             defaultCustomer.open = true; // 기본 고객은 항상 열려있음
             userData.userCustomers.Add(defaultCustomer);
+            Debug.Log("디폴트손님추가");
+
+            userData.userWines.Clear();
+            UserWine defaultWine = new UserWine();
+            defaultWine.key = "wine_11";
+            defaultWine.open = true;
+            userData.userWines.Add(defaultWine);
+            Debug.Log("디폴트와인추가");
+
+
 
             SaveMgr.SaveData<UserData>("UserData", userData);
         }
@@ -109,15 +126,15 @@ public class User : MonoBehaviour
         //userData.coin = PlayerPrefs.GetInt("Coin", 0);        
         //UpdateCoinText();
         //FindObjectOfType<RestaurantManager>();
-       
+
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            AddCoin(10);
-        }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    AddCoin(10);
+        //}
     }
 
     public void AddFurniture(string key)
@@ -172,6 +189,19 @@ public class User : MonoBehaviour
             userFox.key = key;
             userFox.purchased = true; // 또는 획득 여부를 나타내는 다른 상태로 설정
             userData.userFoxes.Add(userFox);
+            SaveMgr.SaveData<UserData>("UserData", userData); // 데이터 저장
+        }
+    }
+
+    public void AddWine(string key)
+    {
+        UserWine userWine = GetUserWine(key);
+        if (userWine == null)
+        {
+            userWine = new UserWine();
+            userWine.key = key;
+            userWine.open = true; // 또는 획득 여부를 나타내는 다른 상태로 설정
+            userData.userWines.Add(userWine);
             SaveMgr.SaveData<UserData>("UserData", userData); // 데이터 저장
         }
     }
@@ -233,6 +263,18 @@ public class User : MonoBehaviour
         return null;
     }
 
+    public UserWine GetUserWine(string key)
+    {
+        for (int i = 0; i < userData.userWines.Count; i++)
+        {
+            if (userData.userWines[i].key == key)
+            {
+                return userData.userWines[i];
+            }
+        }
+        return null;
+    }
+
 
     public void AddCoin(int c)
     {
@@ -244,55 +286,89 @@ public class User : MonoBehaviour
     }
 
 
+    public void AddGatchaCoin(int c)
+    {
+        userData.gatchaCoin += c;
+        SaveMgr.SaveData<UserData>("UserData", userData);
+
+    }
+
+
+    public bool useGatchaCoin()
+    {
+        if (userData.gatchaCoin > 0)
+        {
+            userData.gatchaCoin--;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
-[System.Serializable]
-public class UserData
-{
 
-    public int level; // 레벨 
-    public int exp; //경험치 - 메인 퀘스트를 통해서 획득
-    public int coin;
-    public List<UserFurniture> userFurnitureList = new List<UserFurniture>();
-    public List<UserKitchen> userKitchenList = new List<UserKitchen>();
-    public List<UserCustomer> userCustomers = new List<UserCustomer>();
-    public List<UserFox> userFoxes = new List<UserFox>();
+    [System.Serializable]
+    public class UserData
+    {
 
-}
+        public int level; // 레벨 
+        public int exp; //경험치 - 메인 퀘스트를 통해서 획득
+        public int coin;
+        public int gatchaCoin;
+        public List<UserFurniture> userFurnitureList = new List<UserFurniture>();
+        public List<UserKitchen> userKitchenList = new List<UserKitchen>();
+        public List<UserCustomer> userCustomers = new List<UserCustomer>();
+        public List<UserFox> userFoxes = new List<UserFox>();
+        public List<UserWine> userWines = new List<UserWine>();
 
-[System.Serializable]
-public class UserFurniture
-{
-    public string furniturekey;
-    public bool purchased; // 초기값 false
-    public bool setup;// 초기값 false
-}
+    }
 
-[System.Serializable]
+    [System.Serializable]
+    public class UserFurniture
+    {
+        public string furniturekey;
+        public bool purchased; // 초기값 false
+        public bool setup;// 초기값 false
+    }
 
-public class UserKitchen
-{
-    public string kitchenkey;
-    public bool purchased; // 초기값 false
-    public bool setup;// 초기값 false
+    [System.Serializable]
+
+    public class UserKitchen
+    {
+        public string kitchenkey;
+        public bool purchased; // 초기값 false
+        public bool setup;// 초기값 false
 
 
-}
+    }
 
-[System.Serializable]
+    [System.Serializable]
 
-public class UserCustomer
-{
-    public string key;
-    public bool open;
+    public class UserCustomer
+    {
+        public string key;
+        public bool open;
 
-}
+    }
 
-[System.Serializable]
+    [System.Serializable]
 
-public class UserFox
-{
-    public string key;
-    public bool purchased;
+    public class UserFox
+    {
+        public string key;
+        public bool purchased;
 
-}
+    }
+
+
+    [System.Serializable]
+
+    public class UserWine
+    {
+        public string key;
+        public bool open;
+
+    }
+
