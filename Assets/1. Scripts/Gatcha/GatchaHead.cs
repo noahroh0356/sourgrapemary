@@ -5,7 +5,9 @@ using UnityEngine;
 public class GatchaHead : MonoBehaviour
 {
     public GatchaCanvas gatchaCanvas;
+    public GatchaManager gatchaManager;
     public float moveSpeed=5;
+    public CloseButton closeButton;
 
     public Transform leftTopTr;
     public Transform rightTopTr;
@@ -120,31 +122,34 @@ public class GatchaHead : MonoBehaviour
                 if (collision.CompareTag("GatchaBall"))
                 {
                     gatchaBall = collision.GetComponent<GatchaBall>();
+
                     if (gatchaBall == null)
                     {
                         gatchaBall = collision.GetComponentInParent<GatchaBall>();
                     }
-                    Debug.Log($"gatchaBall name{gatchaBall.name}");
 
                     gatchaBall.transform.parent = transform; // 가챠 볼의 부모를 가챠 헤드로 설정 따라 올라오게 하기 위해서
-                    gatchaBall.rgdy.bodyType = RigidbodyType2D.Kinematic;
+                        gatchaBall.rgdy.bodyType = RigidbodyType2D.Kinematic;
 
-                    float xGap = Mathf.Abs(gatchaBall.transform.position.x - transform.position.x); //현재 가챠 헤드와 가챠 볼의 x거?
+                        float xGap = Mathf.Abs(gatchaBall.transform.position.x - transform.position.x); //현재 가챠 헤드와 가챠 볼의 x거?
 
-                    float pickedChance = 100 - (xGap*100); // 곱해지는 수가 높을 수록 난이도가 상승
+                        float pickedChance = 100 - (xGap * 100); // 곱해지는 수가 높을 수록 난이도가 상승
 
-                    if (pickedChance <= 10)
-                    { pickedChance = 10; }
+                        if (pickedChance <= 10)
+                        { pickedChance = 10; }
 
-                    float randomChance = Random.Range(0f, 100f);
+                        float randomChance = Random.Range(0f, 100f);
 
-                    //if (randomChance <= pickedChance)
-                    //{ }
-                    //else
-                    //{ }
-                    StartCoroutine(CoProcessGatchaBall(gatchaBall, randomChance<= pickedChance));
-                        }
-                isCollided = true;
+                        //if (randomChance <= pickedChance)
+                        //{ }
+                        //else
+                        //{ }
+                  
+                    StartCoroutine(CoProcessGatchaBall(gatchaBall, randomChance <= pickedChance));
+
+                }
+
+                    isCollided = true;
                 isMovingDown = false;
                 StartCoroutine(CoProcessMove());
 
@@ -166,7 +171,9 @@ public class GatchaHead : MonoBehaviour
 
         if (success == true)
         {
+            Debug.Log("성공");
             gatchaBall.ReceiveReward();
+
         }
 
     }
@@ -248,6 +255,26 @@ public class GatchaHead : MonoBehaviour
         isComeback = false;
 
         Debug.Log("DropMove 완료, Comeback 시작");
+        EndGatcha();
+    }
+
+    public void EndGatcha()
+    {
+        gatchaCanvas.gameObject.SetActive(false);
+
+        closeButton.OnClickButton();
+        ResetGatcha();
+    }
+
+    public void ResetGatcha() // *가챠리
+    {
+        // 기존 가챠 볼 제거
+        GatchaBall[] existingBalls = FindObjectsOfType<GatchaBall>();
+        foreach (GatchaBall ball in existingBalls)
+        {
+            Destroy(ball.gameObject);
+        }
+
     }
 
     //IEnumerator DropMoveCoroutine()

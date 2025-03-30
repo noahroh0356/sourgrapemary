@@ -2,17 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelperFox : Fox
+public class JinsangCustomer : MonoBehaviour
 {
-    //줍기 + More Tip
-    public float moveSpeed;
-    //Enter()에 레스토랑에 등장 + 동전을 줍기 시작
-    public override void Enter()
+    // 레스토랑에 들어옴 ,
+
+    public float moveSpeed= 3f;
+
+    //public Transform spawn;
+    public static JinsangCustomer Instance;
+
+    public Transform enterancePosition;
+
+
+    public void Awake()
     {
-        base.Enter(); // base는 this의 부모객체 버전 
-        transform.position = new Vector3(5, 0);
-        StartCoroutine(CoPickUpCoin());
+        Instance = this;
     }
+
+    //public void Spawn()
+
+    //{
+    //    Vector3 spawnPosition = spawn.position;
+    //    transform.position = spawnPosition;
+
+    //    //StartCoroutine(MoveToEnterance());
+
+    //    //어디선가 생성될텐데 거기서부터 입구까지 들어오게 처
+    //}
+
+
+    public virtual void Enter()
+    {
+        transform.position = CustomerManager.Instance.enterance.position;
+        StartCoroutine(CoPickUpCoin());
+
+    }
+
 
     IEnumerator CoPickUpCoin()
     {
@@ -44,11 +69,20 @@ public class HelperFox : Fox
                     Vector2.MoveTowards(transform.position, closestCoin.transform.position, Time.deltaTime * moveSpeed);
 
                 yield return null;
-            }
-            closestCoin.Picked();
+            }   
+            closestCoin.DestroyAcon();
         }
 
 
     }
+
+
+
+    public void Exit()
+    {
+
+    }
+
+
 
 }

@@ -6,6 +6,9 @@ public class GatchaBall : MonoBehaviour
 {
     public Rigidbody2D rgdy;
     public GatchaType gatchaType;
+    public GatchaCanvas gatchaCanvas;
+    public GatchaManager gatchaManager;
+
     public string key;
 
     public virtual void SetGatchaBall(string key)
@@ -17,7 +20,7 @@ public class GatchaBall : MonoBehaviour
     {
         if (gatchaType == GatchaType.Customer)
         {
-            //key에 해당하는 손님 획득
+            //key에 해당하는 손님 획득
             User.Instance.AddCustomer(key); // **
 
         }
@@ -35,7 +38,11 @@ public class GatchaBall : MonoBehaviour
         else if (gatchaType == GatchaType.Wine)
         {
             User.Instance.AddWine(key);
+
+            //gatchaManager.ResetGatcha();
         }
+
+
 
     }
 

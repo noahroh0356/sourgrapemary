@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6987474957013351808}
   - component: {fileID: 2075881441614313514}
   m_Layer: 0
-  m_Name: wine_1_1
+  m_Name: wine_1
   m_TagString: GatchaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 2042825882073248958}
   - component: {fileID: 1813718572162944790}
   m_Layer: 0
-  m_Name: wine_7_1
+  m_Name: wine_7
   m_TagString: GatchaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 5303371782202192914}
   - component: {fileID: 2814494057463592889}
   m_Layer: 0
-  m_Name: wine_3_1
+  m_Name: wine_3
   m_TagString: GatchaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 3322269903731887682}
   - component: {fileID: 6853506314497918016}
   m_Layer: 0
-  m_Name: wine_2_1
+  m_Name: wine_2
   m_TagString: GatchaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 4167906878214028680}
   - component: {fileID: 8953600384357739554}
   m_Layer: 0
-  m_Name: wine_0_1
+  m_Name: wine_0
   m_TagString: GatchaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +601,7 @@ Transform:
   m_GameObject: {fileID: 2543411279549877056}
   serializedVersion: 2
   m_LocalRotation: {x: -3.5760223e-10, y: -0.000000053974762, z: 0.3149991, w: -0.94909203}
-  m_LocalPosition: {x: 2.011, y: -0.153, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -694,7 +694,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.56, y: 1.24}
     newSize: {x: 2.18, y: 2.44}
     adaptiveTilingThreshold: 0.5
@@ -731,7 +731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2791451759401098677}
   - component: {fileID: 8616002465348342430}
-  - component: {fileID: 8492872758244181437}
+  - component: {fileID: 3442337664459847282}
   m_Layer: 0
   m_Name: WineGatchaBall
   m_TagString: GatchaBall
@@ -793,7 +793,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8492872758244181437
+--- !u!114 &3442337664459847282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -802,11 +802,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4270072727897659698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 788705eb572a2483ca40c54c9930e03a, type: 3}
+  m_Script: {fileID: 11500000, guid: e92781639c8a8478ebe659504162891f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rgdy: {fileID: 0}
+  rgdy: {fileID: 8616002465348342430}
   gatchaType: 0
+  gatchaCanvas: {fileID: 0}
+  gatchaManager: {fileID: 0}
   key: 
   spriteRenderers: []
 --- !u!1 &4674399261095315261
@@ -836,7 +838,7 @@ Transform:
   m_GameObject: {fileID: 4674399261095315261}
   serializedVersion: 2
   m_LocalRotation: {x: -3.5760223e-10, y: -0.000000053974762, z: 0.3149991, w: -0.94909203}
-  m_LocalPosition: {x: -0.52, y: -0.7, z: 0}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -982,7 +984,7 @@ Transform:
   m_GameObject: {fileID: 5209798013645036170}
   serializedVersion: 2
   m_LocalRotation: {x: -3.5760223e-10, y: -0.000000053974762, z: 0.3149991, w: -0.94909203}
-  m_LocalPosition: {x: -0.256, y: 0.008, z: 0}
+  m_LocalPosition: {x: 0, y: 0.008, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1125,7 +1127,7 @@ Transform:
   m_GameObject: {fileID: 5387280154685713567}
   serializedVersion: 2
   m_LocalRotation: {x: -3.5760223e-10, y: -0.000000053974762, z: 0.3149991, w: -0.94909203}
-  m_LocalPosition: {x: 0.72, y: -0.26, z: -0}
+  m_LocalPosition: {x: 0, y: -0.26, z: -0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1256,7 +1258,7 @@ GameObject:
   - component: {fileID: 5999897722070519700}
   - component: {fileID: 1553085104630905781}
   m_Layer: 0
-  m_Name: wine_6_1
+  m_Name: wine_6
   m_TagString: GatchaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1403,7 +1405,7 @@ GameObject:
   - component: {fileID: 8952083121966912465}
   - component: {fileID: 1492941223326141059}
   m_Layer: 0
-  m_Name: wine_5_1
+  m_Name: wine_5
   m_TagString: GatchaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1549,7 +1551,7 @@ GameObject:
   - component: {fileID: 2528176934264117462}
   - component: {fileID: 2516181999436447861}
   m_Layer: 0
-  m_Name: wine_4_1
+  m_Name: wine_4
   m_TagString: GatchaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1707,7 +1709,7 @@ Transform:
   m_GameObject: {fileID: 8803446639287322675}
   serializedVersion: 2
   m_LocalRotation: {x: -3.5760223e-10, y: -0.000000053974762, z: 0.3149991, w: -0.94909203}
-  m_LocalPosition: {x: -0.38, y: 0.29, z: 0}
+  m_LocalPosition: {x: 0, y: 0.29, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []

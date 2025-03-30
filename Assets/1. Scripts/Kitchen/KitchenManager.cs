@@ -50,7 +50,7 @@ public class KitchenManager : MonoBehaviour
 
         for (int i = 0; i < kitchenBarPlaces.Length; i++)
         {
-            if (kitchenBarPlaces[i].curKitchenBar !=null && kitchenBarPlaces[i].making == false)
+            if (kitchenBarPlaces[i].curKitchenBar != null && kitchenBarPlaces[i].making == false)
             {
                 kitchenBarPlace = kitchenBarPlaces[i];
                 break;
@@ -62,6 +62,7 @@ public class KitchenManager : MonoBehaviour
 
     List<MenuData> waitingOrderMenus = new List<MenuData>();
     List<Customer> waitingCustomers = new List<Customer>();
+    public List<UserKitchen> userKitchenList = new List<UserKitchen>();
 
 
     public void MatchOrder()
@@ -69,10 +70,30 @@ public class KitchenManager : MonoBehaviour
         if (waitingOrderMenus.Count <= 0)
             return;
 
+        bool hasAnyKitchenBar = User.Instance.userData.userKitchenList.Count > 0; // ✅ User의 키친바 리스트 사용
+
+        if (!hasAnyKitchenBar) // ❌ 유저가 키친바가 없을 경우
+        {
+            if (waitingCustomers.Count > 0)
+            {
+                Debug.Log("키친바 없음 -> 손님 퇴장");
+                StartCoroutine(waitingCustomers[0].StartExitMove());
+                waitingCustomers.RemoveAt(0);
+
+                if (waitingOrderMenus.Count > 0)
+                {
+                    waitingOrderMenus.RemoveAt(0);
+                }
+            }
+            return;
+        }
+
         KitchenBarPlace barPlace = GetAvailableKitchenBarPlace();
         if (barPlace == null)
+        {
+            Debug.Log("키친바가 있지만 모두 사용 중 -> 대기 유지");
             return;
-
+        }
         MainQuestManager.Instance.DoQuest(MainQuestType.TakeOrder);//** 퀘스트
         barPlace.StartMake(waitingOrderMenus[0], waitingCustomers[0]);
         waitingOrderMenus.RemoveAt(0);

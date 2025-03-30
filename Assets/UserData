@@ -1,8 +1,8 @@
 {
     "level": 0,
     "exp": 0,
-    "coin": 45,
-    "gatchaCoin": 10,
+    "coin": 80,
+    "gatchaCoin": 3,
     "userFurnitureList": [
         {
             "furniturekey": "table0_0",
@@ -11,11 +11,6 @@
         },
         {
             "furniturekey": "table1_0",
-            "purchased": true,
-            "setup": true
-        },
-        {
-            "furniturekey": "table2_0",
             "purchased": true,
             "setup": true
         }
@@ -37,15 +32,14 @@
             "open": true
         }
     ],
-    "userFoxes": [
-        {
-            "key": "redFox",
-            "purchased": true
-        }
-    ],
+    "userFoxes": [],
     "userWines": [
         {
             "key": "wine_11",
+            "open": true
+        },
+        {
+            "key": "wine_0",
             "open": true
         }
     ]

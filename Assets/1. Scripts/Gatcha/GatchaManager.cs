@@ -15,9 +15,9 @@ public class GatchaManager : MonoBehaviour
     {
         MainQuestManager.Instance.DoQuest(MainQuestType.PlayGatcha);
         MakeCustomerBall();
-        //User.Instance.Lv; 포도알을 모으면 소믈리에 뱃지 레벨
         MakeWineBall();
         MakeAcon();
+        //User.Instance.Lv; 포도알을 모으면 소믈리에 뱃지 레벨
     }
 
 
@@ -98,6 +98,8 @@ public class GatchaManager : MonoBehaviour
         // 얘는 커스터머프리팹 리스트랑 다르게 프리팹의 종류가 다르지가 않기 때문에 가챠볼안에서 코딩으로 구분할 수 있도록 해줘야함 
 
     }
+
+
 
 
     void MakeWineBall()

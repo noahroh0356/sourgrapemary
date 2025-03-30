@@ -55,7 +55,6 @@ public class User : MonoBehaviour
     }
 
 
-
     public List<UserCustomer> GetSetUpCustomer()
     {
         return userData.userCustomers; // 모든 Usercustomer 리스트를 반환하거나, 필요한 조건에 따라 필터링하여 반환
@@ -110,7 +109,6 @@ public class User : MonoBehaviour
             Debug.Log("디폴트와인추가");
 
 
-
             SaveMgr.SaveData<UserData>("UserData", userData);
         }
 
@@ -119,15 +117,15 @@ public class User : MonoBehaviour
 
 
 
-    void Start()
-    {
-        //userData = new UserData();
+    //void Start()
+    //{
+    //    //userData = new UserData();
 
-        //userData.coin = PlayerPrefs.GetInt("Coin", 0);        
-        //UpdateCoinText();
-        //FindObjectOfType<RestaurantManager>();
+    //    //userData.coin = PlayerPrefs.GetInt("Coin", 0);        
+    //    //UpdateCoinText();
+    //    //FindObjectOfType<RestaurantManager>();
 
-    }
+    //}
 
     public void Update()
     {

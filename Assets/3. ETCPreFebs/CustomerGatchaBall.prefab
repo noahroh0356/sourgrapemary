@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788705eb572a2483ca40c54c9930e03a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rgdy: {fileID: 0}
+  rgdy: {fileID: 1696091399890243564}
   gatchaType: 1
   key: 
   spriteRenderers: []

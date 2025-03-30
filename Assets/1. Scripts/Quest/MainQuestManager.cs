@@ -70,6 +70,7 @@ public void DoQuest(MainQuestType type)
             if (userMainQuest.process < GetMainQuestData(type).goal)
             {
                 userMainQuest.process++;
+                CheckClear();
                 FindObjectOfType<MainQuestPanel>().UpdatePanel();
             }
         }
@@ -82,20 +83,21 @@ public void DoQuest(MainQuestType type)
 
         if (userMainQuest.mainQuestType == MainQuestType.PurchaseFurniture)
         {
-           string furnitureKey = curQuestData.GetGoal();
-           UserFurniture userFurniture = User.Instance.GetUserFurniture(furnitureKey);
+            string furnitureKey = curQuestData.goalString;
+            //string furnitureKey = curQuestData.GetGoal();
+            UserFurniture userFurniture = User.Instance.GetUserFurniture(furnitureKey);
             if (userFurniture != null && userFurniture.purchased)
             {
-                CompleteCurrentQuest();
+                FindObjectOfType<MainQuestPanel>().CompleteQuest();
                 return true;
             }
         }
         else if (userMainQuest.mainQuestType == MainQuestType.PurchaseKitchen)
         {
-            string KitchenKey = curQuestData.GetGoal();
+            string KitchenKey = curQuestData.goalString;
             UserKitchen userKitchenBar = User.Instance.GetUserKitchen(KitchenKey);
             {
-                CompleteCurrentQuest();
+                FindObjectOfType<MainQuestPanel>().CompleteQuest();
                 return true;
             }
 
@@ -106,7 +108,7 @@ public void DoQuest(MainQuestType type)
             if (userMainQuest.process >= curQuestData.goal)
             {
                 Debug.Log($"퀘스트 완료! {userMainQuest.mainQuestType}");
-                CompleteCurrentQuest();
+                FindObjectOfType<MainQuestPanel>().CompleteQuest();
                 return true;
             }
         }
@@ -131,15 +133,14 @@ public void DoQuest(MainQuestType type)
     {
         Debug.Log("퀘스트 완료!");
 
-        FindObjectOfType<MainQuestPanel>().CompleteQuest();
 
         curQuestIndex++;  // 다음 퀘스트로 인덱스 증가
         userMainQuest.processing = false; // 퀘스트 진행 상태 초기화
         User.Instance.AddGatchaCoin(1); // 가챠코인 지급
 
-        SaveMgr.SaveData("UserMainQuest", userMainQuest); // 데이터 저장
+        //SaveMgr.SaveData("UserMainQuest", userMainQuest); // 데이터 저장
 
-        // 다음 퀘스트 시작
+        //다음 퀘스트 시작
         StartQuest();
     }
     //public bool CheckClear()
@@ -198,6 +199,7 @@ public class MainQuestData
 {
     public MainQuestType mainQuestType;
     public int goal;
+    public string goalString;
     public string title;
     //public int exp;
     public string GetGoal()

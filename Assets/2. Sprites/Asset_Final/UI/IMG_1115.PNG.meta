@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9060c7d2ef3c44db187725dcb59a64e7
+guid: 29e6cc65c548b4edda0ccd558b59105a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,28 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: wine_0_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 6
-        width: 56
-        height: 124
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5df09a13acbc145189874223f1f20715
-      internalID: 428060036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -153,15 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      wine_0_0: 963249421
-      wine_0_1: -470045295
-      wine_0_2: -835504395
-      wine_0_3: -1858277340
-      wine_0_4: 1738947519
-      wine_0_5: 428060036
-      wine_0_6: -762296049
-      wine_0_7: -547406799
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

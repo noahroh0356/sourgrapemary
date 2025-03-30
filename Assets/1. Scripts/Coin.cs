@@ -55,6 +55,11 @@ public class Coin : MonoBehaviour
         isPicked = true;      
     }
 
+    public void DestroyAcon()
+    {
+        Destroy(this);
+    }
+
     //코인에 대한 가격 설정
 
     public void GetCoin()

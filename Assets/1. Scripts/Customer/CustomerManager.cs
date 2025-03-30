@@ -8,22 +8,40 @@ public class CustomerManager : MonoBehaviour
     public CustomerData[] customerDatas;
     public List<UserCustomer> userCustomers = new List<UserCustomer>(); // 손님의 종 리스트
     public List<Customer> customerPrefabs = new List<Customer>(); // 손님의 종 리스트
-    public List<Customer> waitingCustomers = new List<Customer>(); //대기 손님 
+    public List<Customer> waitingCustomers = new List<Customer>(); //대기 손님
+
     public RestaurantManager restaurantManager;
     public static CustomerManager Instance;
 
+    public JinsangCustomer thiefPrefab;
     public Image inviteGageBar;
 
     //public Customer normalCustomerPrefab;
     //public Customer obCustomerPrefab;
-    
+
 
     private void Awake()
     {
         Instance = this; //this 자신의 객체 = User 스크립
 
-
+        Invoke("EnterJinsang", 3);
+        Invoke("EnterCustomer", Random.Range(3f, 15f));
     }
+
+    public void EnterJinsang()
+    {
+
+     JinsangCustomer jinsangCustomer = Instantiate(thiefPrefab);
+        //손님 위치 설정
+        //jinsangCustomer.Spawn();
+        //진상 손님이 입구에 도착하면
+        jinsangCustomer.Enter();
+    }
+
+
+    // 진상 손님의 종류가 어떻게되는지
+    // 몇초마다 진상손님 중 한명을 등장 시킬지
+
 
 
     //public void JinsangCustomer()

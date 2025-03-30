@@ -124,7 +124,7 @@ public class Customer : MonoBehaviour
         }
     }
 
-    IEnumerator StartExitMove()
+    public IEnumerator StartExitMove()
     {
         yield return new WaitForSeconds(2f); // 2초 대기
 
@@ -174,6 +174,7 @@ public class Customer : MonoBehaviour
     {
         orderMenu = MenuManager.Instance.GetRandomMenuData();
         orderCanvas.SetOrderMenu(orderMenu);
+
     }
 
     public void AcceptOrder()

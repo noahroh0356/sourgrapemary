@@ -33,8 +33,9 @@ public class MainQuestPanel : MonoBehaviour
         if (isQuestCompleted)
         {
             Debug.Log("가챠코인 지급!");
-            User.Instance.AddGatchaCoin(1); // 가챠코인 지급
-            MainQuestManager.Instance.StartQuest(); // 다음 퀘스트 시작
+            MainQuestManager.Instance.CompleteCurrentQuest();
+            //User.Instance.AddGatchaCoin(1); // 가챠코인 지급
+            //MainQuestManager.Instance.StartQuest(); // 다음 퀘스트 시작
         }
     }
 
