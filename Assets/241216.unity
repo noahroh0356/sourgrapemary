@@ -9996,6 +9996,7 @@ MonoBehaviour:
     kitchenPlaceType: 5
     price: 0
     reduceMakingTime: 0
+    purchased: 0
 --- !u!1 &310165654
 GameObject:
   m_ObjectHideFlags: 0
@@ -18283,6 +18284,7 @@ MonoBehaviour:
     kitchenPlaceType: 1
     price: 0
     reduceMakingTime: 0
+    purchased: 0
 --- !u!1 &537726831
 GameObject:
   m_ObjectHideFlags: 0
@@ -21761,6 +21763,7 @@ MonoBehaviour:
     kitchenPlaceType: 0
     price: 0
     reduceMakingTime: 0.2
+    purchased: 0
 --- !u!1 &617095970
 GameObject:
   m_ObjectHideFlags: 0
@@ -22418,6 +22421,7 @@ MonoBehaviour:
     kitchenPlaceType: 3
     price: 0
     reduceMakingTime: 0
+    purchased: 0
 --- !u!1 &628761844
 GameObject:
   m_ObjectHideFlags: 0
@@ -41243,14 +41247,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainQuestDatas:
-  - mainQuestType: 0
-    goal: 5
-    goalString: 
-    title: "\uC190\uB2D8\uCD08\uB300\uD558\uAE30"
-  - mainQuestType: 1
-    goal: 20
-    goalString: 
-    title: "\uC8FC\uBB38\uC218\uB77D\uD558\uAE30"
+  - mainQuestType: 3
+    goal: 1
+    goalString: table0_0
+    title: "\uCCAB\uBC88\uC9F8 \uD14C\uC774\uBE14 \uC0AC\uAE30"
+  - mainQuestType: 4
+    goal: 1
+    goalString: KitchenBar0_0
+    title: "\uCCAB\uBC88\uC9F8 \uB514\uCF04\uB354 \uC0AC\uAE30"
   - mainQuestType: 2
     goal: 20
     goalString: 
@@ -41274,8 +41278,10 @@ MonoBehaviour:
     clearPurchaseFurnitureCount: 0
     clearPurchaseKitchenCount: 0
   curQuestIndex: 0
-  purchaseFurnitureQuestKeys: []
-  purchaseKitchenQuestKeys: []
+  purchaseFurnitureQuestKeys:
+  - table_0_0
+  purchaseKitchenQuestKeys:
+  - KitchenBar_0_0
 --- !u!4 &1051241993
 Transform:
   m_ObjectHideFlags: 0
@@ -48473,6 +48479,7 @@ MonoBehaviour:
     kitchenPlaceType: 4
     price: 0
     reduceMakingTime: 0
+    purchased: 0
 --- !u!1 &1260815957
 GameObject:
   m_ObjectHideFlags: 0
@@ -50458,37 +50465,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305873581}
   m_CullTransparentMesh: 1
---- !u!1 &1305879433
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1305879434}
-  m_Layer: 0
-  m_Name: Spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1305879434
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1305879433}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4, y: 7.45, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1309970539
 GameObject:
   m_ObjectHideFlags: 0
@@ -54370,181 +54346,217 @@ MonoBehaviour:
     kitchenPlaceType: 0
     price: 0
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar0_1
     nextProductKey: KitchenBar0_2
     kitchenPlaceType: 0
     price: 10
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar0_2
     nextProductKey: KitchenBar0_3
     kitchenPlaceType: 0
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar0_3
     nextProductKey: KitchenBar0_4
     kitchenPlaceType: 0
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar0_4
     nextProductKey: KitchenBar0_5
     kitchenPlaceType: 0
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar0_5
     nextProductKey: KitchenBar0_5
     kitchenPlaceType: 0
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar1_0
     nextProductKey: KitchenBar1_1
     kitchenPlaceType: 1
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar1_1
     nextProductKey: KitchenBar1_2
     kitchenPlaceType: 1
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar1_2
     nextProductKey: KitchenBar1_3
     kitchenPlaceType: 1
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar1_3
     nextProductKey: KitchenBar1_4
     kitchenPlaceType: 1
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar1_4
     nextProductKey: KitchenBar1_5
     kitchenPlaceType: 1
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar1_5
     nextProductKey: KitchenBar1_5
     kitchenPlaceType: 1
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar2_0
     nextProductKey: KitchenBar2_1
     kitchenPlaceType: 2
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar2_1
     nextProductKey: KitchenBar2_2
     kitchenPlaceType: 2
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar2_2
     nextProductKey: KitchenBar2_3
     kitchenPlaceType: 2
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar2_3
     nextProductKey: KitchenBar2_4
     kitchenPlaceType: 2
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar2_4
     nextProductKey: KitchenBar2_5
     kitchenPlaceType: 2
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar2_5
     nextProductKey: KitchenBar2_5
     kitchenPlaceType: 2
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar3_0
     nextProductKey: KitchenBar3_1
     kitchenPlaceType: 3
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar3_1
     nextProductKey: KitchenBar3_2
     kitchenPlaceType: 3
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar3_2
     nextProductKey: KitchenBar3_3
     kitchenPlaceType: 3
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar3_3
     nextProductKey: KitchenBar3_4
     kitchenPlaceType: 3
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar3_4
     nextProductKey: KitchenBar3_5
     kitchenPlaceType: 3
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar3_5
     nextProductKey: KitchenBar3_5
     kitchenPlaceType: 3
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar4_0
     nextProductKey: KitchenBar4_1
     kitchenPlaceType: 4
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar4_1
     nextProductKey: KitchenBar4_2
     kitchenPlaceType: 4
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar4_2
     nextProductKey: KitchenBar4_3
     kitchenPlaceType: 4
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar4_3
     nextProductKey: KitchenBar4_4
     kitchenPlaceType: 4
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar4_4
     nextProductKey: KitchenBar4_5
     kitchenPlaceType: 4
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar4_5
     nextProductKey: KitchenBar4_5
     kitchenPlaceType: 4
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar5_0
     nextProductKey: KitchenBar5_1
     kitchenPlaceType: 5
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar5_1
     nextProductKey: KitchenBar5_2
     kitchenPlaceType: 5
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar5_2
     nextProductKey: KitchenBar5_3
     kitchenPlaceType: 5
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar5_3
     nextProductKey: KitchenBar5_4
     kitchenPlaceType: 5
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar5_4
     nextProductKey: KitchenBar5_5
     kitchenPlaceType: 5
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   - key: KitchenBar5_5
     nextProductKey: KitchenBar5_5
     kitchenPlaceType: 5
     price: 20
     reduceMakingTime: 0.2
+    purchased: 0
   userKitchenList: []
 --- !u!1 &1408241103
 GameObject:
@@ -63297,8 +63309,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 31.919}
-  m_SizeDelta: {x: 213.8385, y: 63.8385}
+  m_AnchoredPosition: {x: 0, y: 33.2674}
+  m_SizeDelta: {x: 434.2892, y: 61.1413}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1628194549
 MonoBehaviour:
@@ -75443,6 +75455,7 @@ MonoBehaviour:
     kitchenPlaceType: 2
     price: 0
     reduceMakingTime: 0
+    purchased: 0
 --- !u!1 &1911865181
 GameObject:
   m_ObjectHideFlags: 0
@@ -84899,7 +84912,6 @@ SceneRoots:
   - {fileID: 452553882}
   - {fileID: 1610953074}
   - {fileID: 1334952928}
-  - {fileID: 1305879434}
   - {fileID: 1026638703}
   - {fileID: 2135408649}
   - {fileID: 1366259439}

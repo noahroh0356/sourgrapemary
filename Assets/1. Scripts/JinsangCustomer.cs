@@ -34,12 +34,12 @@ public class JinsangCustomer : MonoBehaviour
     public virtual void Enter()
     {
         transform.position = CustomerManager.Instance.enterance.position;
-        StartCoroutine(CoPickUpCoin());
+        StartCoroutine(CoStealAllCoins());
         Debug.Log("진상짓시작");
     }
 
 
-    IEnumerator CoPickUpCoin()
+    IEnumerator CoStealAllCoins()
     {
 
         while (true)

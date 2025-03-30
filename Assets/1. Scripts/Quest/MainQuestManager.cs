@@ -65,42 +65,109 @@ public class MainQuestManager : MonoBehaviour
 
 public void DoQuest(MainQuestType type)
     {
+        Debug.Log("DoQuest 호출, type: " + type + ", userMainQuest.mainQuestType: " + userMainQuest.mainQuestType);
+
         if (userMainQuest.mainQuestType == type)
         {
-            if (userMainQuest.process < GetMainQuestData(type).goal)
+            if (userMainQuest.mainQuestType == MainQuestType.PurchaseKitchen)
+            {
+                string KitchenKey = GetMainQuestData(type).goalString;
+                Debug.Log("KitchenKey: " + KitchenKey);
+
+                KitchenData kitchenData = KitchenManager.Instance.GetKitchenData(KitchenKey);
+                if (kitchenData != null && kitchenData.purchased)
+                {
+                    userMainQuest.process++;
+                    Debug.Log("주방 구매 목표랑 매칭");
+                    CheckClear();
+                    FindObjectOfType<MainQuestPanel>().UpdatePanel();
+                }
+            }
+            else if (userMainQuest.process < GetMainQuestData(type).goal)
             {
                 userMainQuest.process++;
+                Debug.Log("가구 구매 목표랑 매칭");
                 CheckClear();
                 FindObjectOfType<MainQuestPanel>().UpdatePanel();
             }
         }
+        //if (userMainQuest.mainQuestType == type)
+        //{
+        //    if (userMainQuest.process < GetMainQuestData(type).goal)
+        //    {
+        //        userMainQuest.process++;
+        //        Debug.Log("주방 구매 목표랑 매칭");
+        //        CheckClear();
+        //        FindObjectOfType<MainQuestPanel>().UpdatePanel();
+        //    }
+        //}
         //""현재 진행중인 퀘스트(=만들어야함)""가 타입과 같다면 퀘스트 진행도 1추가
     }
 
     public bool CheckClear() // **차례대로 클리어
     {
         MainQuestData curQuestData = GetMainQuestData(userMainQuest.mainQuestType);
-
         if (userMainQuest.mainQuestType == MainQuestType.PurchaseFurniture)
         {
             string furnitureKey = curQuestData.goalString;
-            //string furnitureKey = curQuestData.GetGoal();
-            UserFurniture userFurniture = User.Instance.GetUserFurniture(furnitureKey);
-            if (userFurniture != null && userFurniture.purchased)
+            FurnitureData furnitureData = FurnitureManager.Instance.GetFurnitureData(furnitureKey);
+
+            if (furnitureData != null)
             {
-                FindObjectOfType<MainQuestPanel>().CompleteQuest();
-                return true;
+                if (furnitureData.purchased)
+                {
+                    FindObjectOfType<MainQuestPanel>().CompleteQuest();
+                    return true;
+                }
             }
+            else
+            {
+                Debug.Log("FurnitureData 찾지 못함: " + furnitureKey);
+            }
+            //FurnitureData furnitureData = FurnitureManager.Instance.GetFurnitureData(furnitureKey);
+            //if (furnitureData != null && furnitureData.purchased)
+            //{
+            //    Debug.Log("FurnitureData 찾음: " + furnitureData.key + ", purchased: " + furnitureData.purchased);
+            //    FindObjectOfType<MainQuestPanel>().CompleteQuest();
+            //    return true;
+            //}
         }
+        //if (userMainQuest.mainQuestType == MainQuestType.PurchaseFurniture)
+        //{
+        //    string furnitureKey = curQuestData.goalString;
+        //    Debug.Log("가구 구매 클리어 체크");
+
+        //    //string furnitureKey = curQuestData.GetGoal();
+        //    UserFurniture userFurniture = User.Instance.GetUserFurniture(furnitureKey);
+        //    if (userFurniture != null && userFurniture.purchased)
+        //    {
+        //        Debug.Log("가구 구매 컴플리트 체크");
+        //        FindObjectOfType<MainQuestPanel>().CompleteQuest();
+        //        return true;
+        //    }
+        //}
         else if (userMainQuest.mainQuestType == MainQuestType.PurchaseKitchen)
         {
             string KitchenKey = curQuestData.goalString;
-            UserKitchen userKitchenBar = User.Instance.GetUserKitchen(KitchenKey);
+            KitchenData kitchenData = KitchenManager.Instance.GetKitchenData(KitchenKey);
             {
-                FindObjectOfType<MainQuestPanel>().CompleteQuest();
-                return true;
-            }
+                if (kitchenData != null)
+                {
+                    if (kitchenData.purchased)
+                    {
+                        FindObjectOfType<MainQuestPanel>().CompleteQuest();
+                        return true;
+                    }
+                }
+                else
+                {
+                    Debug.Log("KitchenData 찾지 못함: " + KitchenKey);
 
+                }
+
+
+
+            }
         }
 
         else

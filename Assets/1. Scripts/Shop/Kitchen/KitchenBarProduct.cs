@@ -31,7 +31,8 @@ public class KitchenBarProduct : MonoBehaviour
         {
             User.Instance.AddKitchenFurniture(key);
             KitchenManager.Instance.UpdateKitchen();
-            GetComponentInParent<KitchenBarPlaceProduct>().UpdateKitchenBarPlace(); // ** 고민 후 처리 해보기
+            MainQuestManager.Instance.DoQuest(MainQuestType.PurchaseKitchen);
+            GetComponentInParent<KitchenBarPlaceProduct>().UpdateKitchenBarPlace(); 
             User.Instance.userData.coin -= kitchenData.price;
             //User.Instance.UpdateCoinText();
 

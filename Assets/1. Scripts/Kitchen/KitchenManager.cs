@@ -131,7 +131,14 @@ public class KitchenManager : MonoBehaviour
 
     }
 
-
+    public void PurchaseKitchenBar(string key)
+    {
+        KitchenData kitchenData = GetKitchenData(key);
+        if (kitchenData != null)
+        {
+            kitchenData.purchased = true;
+        }
+    }
 
 }
 
@@ -143,6 +150,7 @@ public class KitchenData
     public KitchenPlaceType kitchenPlaceType;
     public int price;
     public float reduceMakingTime=0.2f;
+    public bool purchased; // 초기값 false
 
 }
 

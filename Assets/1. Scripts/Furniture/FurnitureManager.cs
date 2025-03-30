@@ -43,11 +43,13 @@ public class FurnitureManager : MonoBehaviour
 
     public FurnitureData GetFurnitureData(string key)
     {
+
         for (int i = 0; i < furnitures.Count; i++)
 
         {
             if (furnitures[i].key == key)
             {
+
                 return furnitures[i];
             }
         }
@@ -55,6 +57,14 @@ public class FurnitureManager : MonoBehaviour
 
     }
 
+    public void PurchaseFurniture(string key)
+    {
+        FurnitureData furniture = GetFurnitureData(key);
+        if (furniture != null)
+        {
+            furniture.purchased = true;
+        }
+    }
 }
 
 

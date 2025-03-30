@@ -34,6 +34,11 @@ public class FurnitureProductPanel : MonoBehaviour
         else
         {
             User.Instance.AddFurniture(key);
+            FurnitureManager.Instance.PurchaseFurniture(key);
+
+
+            MainQuestManager.Instance.DoQuest(MainQuestType.PurchaseFurniture);
+
             GetComponentInParent<TablePlaceProducts>().UpdateTablePlace();
             User.Instance.userData.coin -= furnitureData.price;
             //User.Instance.UpdateCoinText();

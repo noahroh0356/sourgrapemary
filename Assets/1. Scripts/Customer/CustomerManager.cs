@@ -28,15 +28,15 @@ public class CustomerManager : MonoBehaviour
         Invoke("EnterCustomer", Random.Range(3f, 15f));
     }
 
-    public void EnterJinsang()
-    {
+    //public void EnterJinsang()
+    //{
 
-     JinsangCustomer jinsangCustomer = Instantiate(thiefPrefab);
-        //손님 위치 설정
-        //jinsangCustomer.Spawn();
-        //진상 손님이 입구에 도착하면
-        jinsangCustomer.Enter();
-    }
+    // JinsangCustomer jinsangCustomer = Instantiate(thiefPrefab);
+    //    //손님 위치 설정
+    //    //jinsangCustomer.Spawn();
+    //    //진상 손님이 입구에 도착하면
+    //    jinsangCustomer.Enter();
+    //}
 
 
     // 진상 손님의 종류가 어떻게되는지

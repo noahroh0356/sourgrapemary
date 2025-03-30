@@ -20,6 +20,7 @@ public class User : MonoBehaviour
             if (furnitureData.furniturePlace == furniturePlace)
             {
                 return userData.userFurnitureList[i];
+
             }
         }
         return null;
