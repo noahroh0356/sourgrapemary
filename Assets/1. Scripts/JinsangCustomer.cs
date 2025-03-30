@@ -35,7 +35,7 @@ public class JinsangCustomer : MonoBehaviour
     {
         transform.position = CustomerManager.Instance.enterance.position;
         StartCoroutine(CoPickUpCoin());
-
+        Debug.Log("진상짓시작");
     }
 
 

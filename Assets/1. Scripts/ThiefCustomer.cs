@@ -8,7 +8,6 @@ public class ThiefCustomer : JinsangCustomer
     {
         Debug.Log("Thief 손님 진상 시작");
 
-        // 커스터머 
 
     }
 

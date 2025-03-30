@@ -14,13 +14,30 @@ public class GachaButton : MonoBehaviour
 
     public void OnClickButton()
     {
+
+
+        if (User.Instance.userData.gatchaCoin < 1)
+        {
+            Debug.Log("가챠코인부족");
+            activePanel.gameObject.SetActive(false);
+
+            return;
+        }
+        else
+        {
+            User.Instance.userData.gatchaCoin -= 1;
+            activePanel.gameObject.SetActive(true);
+            gatchaManager.StartGacha();
+
+        }
+
+
         for (int i = 0; i < panels.Length; i++)
         {
             panels[i].SetActive(false);
         }
 
-        activePanel.gameObject.SetActive(true);
-        gatchaManager.StartGacha();
+
 
         if (bgmObject != null)
         {
